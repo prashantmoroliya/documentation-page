@@ -2,6 +2,10 @@
 
 ## Build a Technical Documentation Page
 -
+
+<img src="./Screenshot 2023-12-01 at 03-50-31 C Documentation.png" alt="screenshot of website"/>
+
+Codepen.io pen link: https://codepen.io/pen?template=OJdBmeO
 **Objective:**Build an app that is functionally similar to https://technical-documentation-page.freecodecamp.rocks
 <br>
 **User Stories:**<br>
