@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>C++ Documentation</title>
+    <link rel="stylesheet" href="./styles.css"
+  </head>
+
+  <body>
+    <h1>C++ Documentation</h1>
+    <nav id="navbar" class="navbar-movil navbar-expand-sm">
+      <header class="title"><i class="fab fa-js-square"></i>Doc</header>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMini" aria-controls="navMini" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navMini">
+            <ul class="nav flex-column mt-4">
+              <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+              <li class="nav-item"><a class="nav-link" href="#hello_world">Hello World</a></li>
+              <li class="nav-item"><a class="nav-link" href="#types">Types</a></li>
+              <li class="nav-item"><a class="nav-link" href="#statements">Statements</a></li>
+              <li class="nav-item"><a class="nav-link" href="#declarations_as_statements">Declarations as Statements</a></li>
+              <li class="nav-item"><a class="nav-link" href="#if_statements">if Statements</a></li>
+              <li class="nav-item"><a class="nav-link" href="#switch_statements">switch Statements</a></li>
+              <li class="nav-item"><a class="nav-link" href="#function_declarations">Function Declarations</a></li>
+              <li class="nav-item"><a class="nav-link" href="#reference">Reference</a></li>
+            </ul>
+          </div>
+        </nav>
+    <main id="main-doc">
+      <section class="main-section" id="introduction">
+        <header>Introduction</header>
+        <hr>
+        <p>C++, as we all know is an extension to C language and was developed by Bjarne stroustrup at bell labs. C++ is an intermediate level language, as it comprises a confirmation of both high level and low level language features. C++ is a statically typed, free form, multiparadigm, compiled general-purpose language.</p>
+        <p>C++ is an Object Oriented Programming language but is not purely Object Oriented. Its features like Friend and Virtual, violate some of the very important OOPS features, rendering this language unworthy of being called completely Object Oriented. Its a middle level language.</p>
+        <p>C++ is a compiled language. For a program to run, its source text has to be processed by a compiler, producing object files, which are combined by a linker yielding an executable program. A C++ program typically consists of many source code files (usually simply called source files).</p>
+        <img id="execute-program" src="https://i.postimg.cc/K84WDhDr/Screenshot-2023-12-01-at-01-47-46-The-C-Programming-Language-The-C-Programming-Language-4th-Editio.png" alt="C++ multiple file program execution" />
+        <p>An executable program is created for a specific hardware/system combination; it is not portable, say, from a Mac to a Windows PC. When we talk about portability of C++ programs, we usually mean portability of source code; that is, the source code can be successfully compiled and run on a variety of systems.</p>
+        <ul>The ISO C++ standard defines two kinds of entities:
+          <li>Core language features, such as built-in types (e.g., char and int) and loops (e.g., for-statements and while-statements)</li>
+          <li>Standard-library components, such as containers (e.g., vector and map) and I/O operations (e.g., << and getline())</li>
+        </ul>
+        <p>The standard-library components are perfectly ordinary C++ code provided by every C++ implementation. That is, the C++ standard library can be implemented in C++ itself (and is with very minor uses of machine code for things such as thread context switching). This implies that C++ is sufficiently expressive and efficient for the most demanding systems programming tasks.</p>
+        <p>C++ is a statically typed language. That is, the type of every entity (e.g., object, value, name, and expression) must be known to the compiler at its point of use. The type of an object determines the set of operations applicable to it.</p>
+      </section>
+      <section class="main-section" id="hello_world">
+        <header>Hello World</header>
+        <hr>
+        <p>The minimal C++ program is</p>
+        <code>int main() { } //the minimal C++ program</code>
+        <p>This defines a function called <code>main</code>, which takes no arguments and does nothing.</p>
+        <p>Curly braces, <code>{ }</code>, express grouping in C++. Here, they indicate the start and end of the function body. The double slash, <code>//</code>, begins a comment that extends to the end of the line. A comment is for the human reader; the compiler ignores comments.</p>
+        <p>Every C++ program must have exactly one global function named <code>main()</code>. The program starts by executing that function. The <code>int</code> value returned by <code>main()</code>, if any, is the program’s return value to ‘‘the system.’’ If no value is returned, the system will receive a value indicating successful completion. A nonzero value from <code>main()</code> indicates failure. Not every operating system and execution environment make use of that return value: Linux/Unix-based environments often do, but Windows-based environments rarely do.</p>
+        <p>Typically, a program produces some output. Here is a program that writes <code>Hello, World!</code>:</p>
+        <code>
+          #include <iostream>
+          
+          int main()
+          {
+            std::cout << "Hello, World!\n";
+          }
+        </code>
+        <p>The line <code>#include <iostream></code> instructs the compiler to include the declarations of the standard stream I/O facilities as found in <code>iostream</code>. Without these declarations, the expression</p>
+        <code>std::cout << "Hello, World!\n"</code>
+        <p>would make no sense. The operator <code><<</code> (‘‘put to’’) writes its second argument onto its first. In this case, the string literal <code>"Hello, World!\n"</code> is written onto the standard output stream <code>std::cout</code>. A string literal is a sequence of characters surrounded by double quotes. In a string literal, the backslash character <code>\</code> followed by another character denotes a single ‘‘special character.’’ In this case, <code>\n</code> is the newline character, so that the characters written are <code>Hello, World!</code> followed by a newline.</p>
+        <p>The <code>std::</code> specifies that the name <code>cout</code> is to be found in the standard-library namespace.</p>
+        <p>Essentially all executable code is placed in functions and called directly or indirectly from <code>main()</code>. For example:</p>
+        <code>
+          #include <iostream>
+          using namespace std; //make names from std visible without std::
+          
+          double square(double x) //square a double precision floating-point number
+          {
+            return x∗x;
+          }
+
+          void print_square(double x)
+          {
+            cout << "the square of " << x << " is " << square(x) << "\n";
+          }
+          
+          int main()
+          {
+            print_square(1.234); //print: the square of 1.234 is 1.52276
+          }
+        </code>
+        <p>A ‘‘return type’’ <code>void</code> indicates that a function does not return a value.</p>
+      </section>
+      <section class="main-section" id="types">
+        <header>Types</header>
+        <hr>
+        <p>Consider:</p>
+        <code>x = y+f(2);</code>
+        <p>For this to make sense in a C++ program, the names x, y, and f must be suitably declared. That is, the programmer must specify that entities named x, y, and f exist and that they are of types for which = (assignment), + (addition), and () (function call), respectively, are meaningful.</p>
+        <p>Every name (identifier) in a C++ program has a type associated with it. This type determines what operations can be applied to the name (that is, to the entity referred to by the name) and how such operations are interpreted. For example:</p>
+        <code>
+          float x; //x is a floating-point variable
+          int y = 7; //y is an integer variable with the initial value 7
+          float f(int); //f is a function taking an argument of type int and returning a floating-point number
+        </code>
+        <p>These declarations would make the example meaningful. Because y is declared to be an int, it can be assigned to, used as an operand for +, etc. On the other hand, f is declared to be a function that takes an int as its argument, so it can be called given the interger 2.</p>
+        <h2>Fundamental Types</h2>
+        <p>C++ has a set of fundamental types corresponding to the most common basic storage units of a computer and the most common ways of using them to hold data:</p>
+        <ul>
+          <li>A Boolean type (bool)</li>
+          <li>Character types (such as char and wchar_t)</li>
+          <li>Integer types (such as int and long long)</li>
+          <li>Floating-point types (such as double and long double)</li>
+          <li>A type, void, used to signify the absence of information</li>
+        </ul>
+        <p>From these types, we can construct other types using declarator operators:</p>
+        <ul>
+          <li>Pointer types (such as int∗)</li>
+          <li>Array types (such as char[])</li>
+          <li>Reference types (such as double& and vector<int>&&)</li>
+        </ul>
+        <p>In addition, a user can define additional types:</p>
+        <ul>
+          <li>Data structures and classes</li>
+          <li>Enumeration types for representing specific sets of values (enum and enum class)</li>
+        </ul>
+      </section>
+      <section class="main-section" id="statements">
+        <header>Statements</header>
+        <hr>
+        <p>C++ offers a conventional and flexible set of statements. Basically all that is either interesting or complicated is found in expressions and declarations. Note that a declaration is a statement and that an expression becomes a statement when you add a semicolon at its end.</p>
+        <p>Unlike an expression, a statement does not have a value. Instead, statements are used to specify the order of execution. For example:</p>
+        <code>
+          a = b+c; //expression statement
+          if (a==7) //if-statement
+            b = 9; //execute if and only if a==9
+        </code>
+        <p>Logically, a=b+c is executed before the if, as everyone would expect. A compiler may reorder code to improve performance as long as the result is identical to that of the simple order of execution.</p>
+        <h2>Statement Summary</h2>
+        <p>Here is a summary of C++ statements:</p>
+        <code>
+          statement:
+            declaration
+            expression opt ;
+            { statement-listopt }
+            try { statement-list opt } handler-list
+
+            case constant-expression : statement
+            default : statement
+            break ;
+            continue ;
+
+            return expression opt ;
+
+            goto identifier ;
+            identifier : statement
+
+            selection-statement
+            iteration-statement
+
+          selection-statement:
+            if ( condition ) statement
+            if ( condition ) statement else statement
+            switch ( condition ) statement
+            
+          iteration-statement:
+            while ( condition ) statement
+            do statement while ( expression ) ;
+            for ( for-init-statement condition opt ; expression opt ) statement
+            for ( for-init-declaration : expression ) statement
+            
+          statement-list:
+            statement statement-list opt
+            
+          condition:
+            expression
+            type-specifier declarator = expression
+            type-specifier declarator { expression }
+            
+          handler-list:
+            handler handler-listopt
+            
+          handler:
+            catch ( exception-declaration ) { statement-list opt }
+        </code>
+        <p>A semicolon is by itself a statement, the empty statement.</p>
+        <p>A (possibly empty) sequence of statements within ‘‘curly braces’’ (i.e., { and }) is called a block or a compound statement. A name declared in a block goes out of scope at the end of its block.</p>
+        <p>A declaration is a statement and there is no assignment statement or procedure-call statement; assignments and function calls are expressions.</p>
+        <p>A for-init-statement must be either a declaration or an expression-statement. Note that both end with a semicolon.</p>
+        <p>A for-init-declaration must be the declaration of a single uninitialized variable.</p>
+      </section>
+      <section class="main-section" id="declarations_as_statements">
+        <header>Declarations as Statements</header>
+        <hr>
+        <p>A declaration is a statement. Unless a variable is declared static, its initializer is executed whenever the thread of control passes through the declaration. The reason for allowing declarations wherever a statement can be use is to enable the programmer to minimize the errors caused by uninitialized variables and to allow better locality in code. There is rarely a reason to introduce a variable before there is a value for it to hold. For example:</p>
+        <code>
+          void f(vector<string>& v, int i, const char∗ p)
+          {
+            if (p==nullptr) return;
+            if (i<0 || v.size()<=i)
+              error("bad index");
+            string s = v[i];
+            if (s == p) {
+                //... 
+            }
+            //...
+          }
+        </code>
+        <p>The ability to place declarations after executable code is essential for many constants and for single-assignment styles of programming where a value of an object is not changed after initialization. For user-defined types, postponing the definition of a variable until a suitable initializer is available can also lead to better performance. For example:</p>
+        <code>
+          void use()
+          {
+            string s1;
+            s1 = "The best is the enemy of the good.";
+            // ...
+          }
+        </code>
+        <p>This requests a default initialization (to the empty string) followed by an assignment. This can be slower than a simple initialization to the desired value:</p>
+        <code>string s2 {"Voltaire"};</code>
+        <p>The most common reason to declare a variable without an initializer is that it requires a statement to give it its desired value. Input variables are among the few reasonable examples of that:</p>
+        <code>
+          void input()
+          {
+            int buf[max];
+            int count = 0;
+            for (int i; cin>>i;) {
+              if (i<0) error("unexpected negative value");
+              if (count==max) error("buffer overflow");
+              buf[count++] = i;
+            }
+            // ...
+          }
+        </code>
+        <p>I assume that error() does not return; if it does, this code may cause a buffer overflow. Often, <code>push_back()</code> provides a better solution to such examples.
+      </section>
+      <section class="main-section" id="if_statements">
+        <header>if Statements</header>
+        <hr>
+        <p>In an if-statement, the first (or only) statement is executed if the condition is true and the second statement (if it is specified) is executed otherwise. If a condition evaluates to something different from a Boolean, it is – if possible – implicitly converted to a bool. This implies that any arithmetic or pointer expression can be used as a condition. For example, if x is an integer, then</p>
+        <code>if (x) // ...</code>
+        <p>means<p>
+        <code>if (x != 0) // ...</code>
+        <p>For a pointer p,</p>
+        <code>if (p) // ...</code>
+        <p>is a direct statement of the test ‘‘Does p point to a valid object (assuming proper initialization)?’’ and is equivalent to</p>
+        <code>if (p != nullptr) // ...</code>
+        <p>Note that a ‘‘plain’’ enum can be implicitly converted to an integer and then to a bool, whereas an enum class cannot. For example:</p>
+        <code>
+          enum E1 { a, b };
+          enum class E2 { a, b };
+
+          void f(E1 x, E2 y)
+          {
+            if (x)  //OK
+                // ...
+            if (y)  //error : no conversion to bool
+                // ...
+            if (y==E2::a)   //OK
+                // ...
+          }
+        </code>
+        <p>The logical operators</p>
+        <code>&& || !</code>
+        <p>are most commonly used in conditions</p>
+      </section>
+      <section class="main-section" id="switch_statements">
+        <header>switch Statements</header>
+        <hr>
+        <p>A switch-statement selects among a set of alternatives (case-labels). The expression in the case labels must be a constant expression of integral or enumeration type. A value may not be used more than once for case-labels in a switch-statement. For example:</p>
+        <code>
+          void f(int i)
+          {
+            switch (i) {
+            case 2.7:     //error : floating point uses for case
+                  // ...
+            case 2:
+                  // ...
+            case 4−2:    //error : 2 used twice in case labels
+                  // ...
+          };
+        </code>
+        <p>A switch-statement can alternatively be written as a set of if-statements. For example:</p>
+        <code>
+          switch (val) {
+          case 1:
+                f();
+                break;
+          case 2:
+                g();
+                break;
+          default:
+                h();
+                break;
+          }
+        </code>
+        <p>This could be expressed as:</p>
+        <code>
+          if (val == 1)
+            f();
+          else if (val == 2)
+            g();
+          else
+            h();
+        </code>
+        <p>The meaning is the same, but the first (switch) version is preferred because the nature of the operation (testing a single value against a set of constants) is explicit. This makes the switch-statement easier to read for nontrivial examples. It typically also leads to the generation of better code because there is no reason to repeatedly check individual values. Instead, a jump table can be used. </p>
+        <p>Beware that a case of a switch must be terminated somehow unless you want to carry on executing the next case. A break is the most common way of terminating a case, but a return is often useful.</p>
+      </section>
+      <section class="main-section" id="function_declarations">
+        <header>Function Declarations</header>
+        <hr>
+        <p>The main way of getting something done in a C++ program is to call a function to do it. Defining a function is the way you specify how an operation is to be done. A function cannot be called unless it has been previously declared.</p>
+        <p>A function declaration gives the name of the function, the type of the value returned (if any), and the number and types of the arguments that must be supplied in a call. For example:</p>
+        <code>
+          Elem∗ next_elem(); //no argument; return an Elem*
+          void exit(int); //int argument; return nothing
+          double sqrt(double); //double argument; return a double
+        </code>
+        <p><u><b>Parts of a Function Declaration</b></u></p>
+        <p>In addition to specifying a name, a set of arguments, and a return type, a function declaration can contain a variety of specifiers and modifiers. In all we can have:</p>
+        <ul>
+          <li>The name of the function; required</li>
+          <li>The argument list, which may be empty (); required</li>
+          <li>The return type, which may be void and which may be prefix or suffix (using auto); required</li>
+          <li>inline, indicating a desire to have function calls implemented by inlining the function body</li>
+          <li>constexpr, indicating that it should be possible to evaluate the function at compile time if given constant expressions as argument</li>
+          <li>noexcept, indicating that the function may not throw an exception</li>
+          <li>A linkage specification, for example, static</li>
+          <li>[[noreturn]], indicating that the function will not return using the normal call/return mechanism</li>
+        </ul>
+        <p>In addition, a member function may be specified as:</p>
+        </ul>
+          <li>virtual, indicating that it can be overridden in a derived clas</li>
+          <li>override, indicating that it must be overriding a virtual function from a base clas</li>
+          <li>final, indicating that it cannot be overriden in a derived clas</li>
+          <li>static, indicating that it is not associated with a particular objec</li>
+          <li>const, indicating that it may not modify its object</li>
+        </ul>
+        <p><u><b>Function Definitions</b></u></p>
+        <p>Every function that is called must be defined somewhere. A function definition is a function declaration in which the body of the function is presented. For example:</p>
+        <code>
+          void swap(int∗, int∗); //a declaration
+
+          void swap(int∗ p, int∗ q) //a definition
+          {
+            int t = ∗p;
+            ∗p = ∗q;
+            ∗q = t;
+          }
+        </code>
+        <p>The definition and all declarations for a function must specify the same type. Unfortunately, to preserve C compatibility, a const is ignored at the highest level of an argument type. For example, this is two declarations of the same function:</p>
+        <code>
+          void f(int); //type is void(int)
+          void f(const int); //type is void(int)
+        </code>
+        <p>That function, f(), could be defined as:</p>
+        <code>void f(int x) { /*we can modify x here */ }</code>
+        <p>Alternatively, we could define f() as:</p>
+        <code>void f(const int x) { /*we cannot modify x here */ }</code>
+      </section>
+      <section class="main-section" id="reference">
+        <header>Reference</header>
+        <ul>
+          <li>All the documentation in this page is taken from <a href="https://www.stroustrup.com/4th.html">The C++ Programming Language (4th Edition)</a></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
